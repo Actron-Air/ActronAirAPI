@@ -61,6 +61,7 @@ class SystemStatus:
     MasterSerial: str
     LiveTemp_oC: float
     LiveHumidity_pc: float
+    IsOnline: bool
     IsOn: bool
     Mode: str
     FanMode: str
@@ -81,6 +82,7 @@ class SystemStatus:
                 MasterSerial="",
                 LiveTemp_oC=0.0,
                 LiveHumidity_pc=0.0,
+                IsOnline=False,
                 IsOn=False,
                 Mode="",
                 FanMode="",
@@ -94,12 +96,14 @@ class SystemStatus:
                 EnabledZones=[]
             )        
 
+        IsOnline = data.get("isOnline", False)
         data = data.get("lastKnownState", {})
         return SystemStatus(
             SystemName=data.get("NV_SystemSettings", {}).get("SystemName", ""),
             MasterSerial=data.get("AirconSystem", {}).get("MasterSerial", ""),
             LiveTemp_oC=data.get("MasterInfo", {}).get("LiveTemp_oC", 0.0),
             LiveHumidity_pc=data.get("MasterInfo", {}).get("LiveHumidity_pc", 0.0),
+            IsOnline=IsOnline,
             IsOn=data.get("UserAirconSettings", {}).get("isOn", False),
             Mode=data.get("UserAirconSettings", {}).get("Mode", ""),
             FanMode=data.get("UserAirconSettings", {}).get("FanMode", ""),
