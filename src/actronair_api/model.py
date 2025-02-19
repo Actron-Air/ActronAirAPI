@@ -75,7 +75,26 @@ class SystemStatus:
 
     @staticmethod
     def extract_system_status(data: dict) -> "SystemStatus":
-        data = data.get("lastKnownState")
+        if data is None:
+            return SystemStatus(
+                SystemName="",
+                MasterSerial="",
+                LiveTemp_oC=0.0,
+                LiveHumidity_pc=0.0,
+                IsOn=False,
+                Mode="",
+                FanMode="",
+                TemprSetPoint_Cool=23.0,
+                TemprSetPoint_Heat=23.0,
+                SetCool_Min=0.0,
+                SetCool_Max=0.0,
+                SetHeat_Min=0.0,
+                SetHeat_Max=0.0,
+                RemoteZoneInfo=[],
+                EnabledZones=[]
+            )        
+
+        data = data.get("lastKnownState", {})
         return SystemStatus(
             SystemName=data.get("NV_SystemSettings", {}).get("SystemName", ""),
             MasterSerial=data.get("AirconSystem", {}).get("MasterSerial", ""),
