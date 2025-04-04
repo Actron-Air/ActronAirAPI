@@ -1,4 +1,4 @@
-"""abstract auth implementation for Actron Air."""
+"""abstract auth implementation for ActronAir."""
 
 from __future__ import annotations
 

@@ -61,7 +61,7 @@ class ZoneInfo:
 
 @dataclass
 class SystemStatus:
-    """Class that defines an actron air ac system status."""
+    """Class that defines an ActronAir ac system status."""
 
     SystemName: str
     MasterSerial: str
@@ -141,7 +141,7 @@ class SystemStatus:
 
 @dataclass
 class CommandResponse:
-    """Class that defines a response to a command issued to actron air ac system."""
+    """Class that defines a response to a command issued to ActronAir ac system."""
 
     CorrelationId: str
     Type: str

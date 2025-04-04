@@ -1,4 +1,4 @@
-"""All Actron Air Cloud API wrappers in python."""
+"""All ActronAir Cloud API wrappers in python."""
 
 from .auth import AbstractAuth
 from .const import (
@@ -48,7 +48,7 @@ class ActronAirApi:
         )
 
     async def async_getACSystemStatus(self, serial: str) -> any:
-        """Actron Air API to fetch AC system status."""
+        """ActronAir API to fetch AC system status."""
         attemptCounter = 0
         error = None
         while attemptCounter < self.retryCount:
@@ -69,7 +69,7 @@ class ActronAirApi:
         )
 
     async def async_sendCommand(self, serial: str, command: str) -> any:
-        """Actron Air API to send command to the AC System/Wall Controller."""
+        """ActronAir API to send command to the AC System/Wall Controller."""
         attemptCounter = 0
         error = None
         while attemptCounter < self.retryCount:

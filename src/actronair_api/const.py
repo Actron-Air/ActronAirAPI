@@ -1,4 +1,4 @@
-"""Constants for the Actron Air package"""
+"""Constants for the ActronAir package"""
 
 """Actron Cloud Platform URLS."""
 ACP_BASE_URL = "https://nimbus.actronair.com.au"
