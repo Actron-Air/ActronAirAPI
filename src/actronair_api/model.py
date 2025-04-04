@@ -39,6 +39,7 @@ class ZoneInfo:
     NV_ITC: bool
     NV_ITD: bool
     NV_IHD: bool
+    TemprSetPoint_Cool: float
 
     @staticmethod
     def extract_zone_info(zone: dict) -> "ZoneInfo":
@@ -55,7 +56,8 @@ class ZoneInfo:
             ZonePosition=zone.get("ZonePosition", 0),
             NV_ITC=zone.get("NV_ITC", False),
             NV_IHD=zone.get("NV_IHD", False),
-            NV_ITD=zone.get("NV_ITD", False)
+            NV_ITD=zone.get("NV_ITD", False),
+            TemprSetPoint_Cool=zone.get("TemperatureSetpoint_Cool_oC", "23.0")
         )
 
 
