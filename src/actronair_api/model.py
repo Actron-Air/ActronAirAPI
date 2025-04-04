@@ -36,6 +36,9 @@ class ZoneInfo:
     AirflowControlLocked: bool
     LastZoneProtection: bool
     ZonePosition: int
+    NV_ITC: bool
+    NV_ITD: bool
+    NV_IHD: bool
 
     @staticmethod
     def extract_zone_info(zone: dict) -> "ZoneInfo":
@@ -50,6 +53,9 @@ class ZoneInfo:
             AirflowControlLocked=zone.get("AirflowControlLocked", False),
             LastZoneProtection=zone.get("LastZoneProtection", False),
             ZonePosition=zone.get("ZonePosition", 0),
+            NV_ITC=zone.get("NV_ITC", False),
+            NV_IHD=zone.get("NV_IHD", False),
+            NV_ITD=zone.get("NV_ITD", False)
         )
 
 
